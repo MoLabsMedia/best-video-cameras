@@ -40,19 +40,7 @@ class Camera
   battery_life: 0 #( unit: CIPA )
   
   hasRAW: () -> return undefined
-  getResolution: ( image_ratio, type ) ->
-    switch image_ratio
-      when '3:2'
-        switch type
-          when '#' 
-            return [  ]
-          else return false
-      when '16:9'
-        switch type
-          when '#' 
-            return [  ]
-          else return false
-      else return false
+  hasResolutions: ( image_ratio, type ) -> undefined
   hasFrameRate: ( res ) ->
     switch res
       when '1280x1080'
@@ -88,5 +76,5 @@ class Camera
   hasWeatherSeal: () -> return undefined
   hasSensors: () -> return undefined
 
-  getPros: () -> return []
-  getCons: () -> return []
+  hasPros: () -> return []
+  hasCons: () -> return []

@@ -44,7 +44,7 @@ class Camera
   battery_life: 290 #( unit: CIPA )
   
   hasRAW: () -> return true
-  getResolution: ( image_ratio, type ) ->
+  hasResolutions: ( image_ratio, type ) ->
     switch image_ratio
       when '3:2'
         switch type
@@ -122,10 +122,10 @@ class Camera
     'orientation sensor'
   ]
 
-  getPros: () -> return [
+  hasPros: () -> return [
     'OUTSTANDING low light performance'
     'GREAT autofocus speed'
   ]
-  getCons: () -> return [
+  hasCons: () -> return [
     'roller effect'
   ]

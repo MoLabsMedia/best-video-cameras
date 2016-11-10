@@ -44,7 +44,7 @@ class Camera
   battery_life: 500 #( unit: CIPA )
   
   hasRAW: () -> return true
-  getResolution: ( image_ratio, type ) -> return undefined
+  hasResolutions: ( image_ratio, type ) -> return undefined
   hasFrameRate: ( res ) ->
     switch res
       when '4096x2160'
@@ -116,5 +116,5 @@ class Camera
     'orientation sensor'
   ]
 
-  getPros: () -> return []
-  getCons: () -> return []
+  hasPros: () -> return []
+  hasCons: () -> return []
