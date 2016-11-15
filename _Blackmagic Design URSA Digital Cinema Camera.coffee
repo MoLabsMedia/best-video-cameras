@@ -1,6 +1,6 @@
 class Camera
-  brand: 'Canon'
-  name: 'C500 4K'
+  brand: 'Blackmagic'
+  name: 'URSA Mini 4K'
   year:  '2016-01-01'
 
   size: [ 0, 0, 0 ] #( unit: mm )
@@ -13,6 +13,7 @@ class Camera
   sensor: {
     type: '#'
     size: '#'
+    crop_factor: undefined #( unit: X )
     effective_pixels: 0 #( megapixels )
     image_ratio: [ 
       '3:2'
@@ -25,6 +26,8 @@ class Camera
   codec: [
     '#'
   ]
+  dynamic_range: undefined #( unit: stops )
+  color_depth: 8 #( unit: bit, 4:2:0 )
 
   LCD: {
     type: 'TFT LCD'
@@ -59,6 +62,9 @@ class Camera
   ]
   hasDigitalZoom: () -> return undefined #( unit: X )
   hasTimelapseRecording: () -> return undefined
+  hasLog: () -> return false
+  hasExposureMeterings: () -> undefined
+  hasND: () -> return false
   
   hasTouchScreen: () -> return undefined
   hasMic: () -> return undefined
@@ -76,5 +82,16 @@ class Camera
   hasWeatherSeal: () -> return undefined
   hasSensors: () -> return undefined
 
-  hasPros: () -> return []
+  hasPros: () -> return [
+    'Super-35mm CMOS Sensor'
+    '4000 x 2160 Video up to 60p'
+    'Compressed & Uncompressed Raw Recording'
+    'Ready-to-Edit ProRes 444 + 422 Recording'
+    'Dual CFast 2.0 Memory Card Slots'
+    '12G-SDI Output, Timecode and REF Input'
+    '1080p Flip-Out Screen'
+    'Touchscreen Interface'
+    '2x XLR Audio Inputs with Phantom Power'
+    'Magnesium Alloy Body'
+  ]
   hasCons: () -> return []

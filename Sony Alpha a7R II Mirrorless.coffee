@@ -7,12 +7,13 @@ class Camera
   weight: 625 #( unit: g )
 
   body: 'SLR-style mirrorless'
-  lens: 'E'
+  lens: 'Sony E'
 
   processor: 'Bionz X'
   sensor: {
     type: 'BSI-CMOS'
     size: 'full-frame' #( 35.9x24mm )
+    crop_factor: undefined #( unit: X )
     effective_pixels: 42 #( megapixels )
     image_ratio: [ 
       '3:2'
@@ -28,6 +29,8 @@ class Camera
     'AVCHD'
     'XAVC S'
   ]
+  dynamic_range: undefined #( unit: stops )
+  color_depth: 8 #( unit: bit, 4:2:0 )
 
   LCD: {
     type: 'TFT LCD'
@@ -63,13 +66,13 @@ class Camera
       else return false
   hasFrameRate: ( res ) ->
     switch res
-      when '3840x2160'
+      when '3840x2160' # UHD
         return [
           '30p'
           '25p'
           '24p'
         ]
-      when '1920x1080'
+      when '1920x1080' # Full HD
         return [
           '60p'
           '60i'
@@ -100,11 +103,14 @@ class Camera
   ]
   hasDigitalZoom: () -> return 4 #( unit: X )
   hasTimelapseRecording: () -> return true
+  hasLog: () -> return false
+  hasExposureMeterings: () -> undefined
+  hasND: () -> return false
   
   hasTouchScreen: () -> return false
-  hasMic: () -> return 'stereo'
-  hasHeadphone: () -> return 'mono'
-  hasDualMemorySlots: () -> return undefined
+  hasMic: () -> return true
+  hasHeadphone: () -> return true
+  hasDualMemorySlots: () -> return false
 
   hasUSB: () -> return 2.0 # ( 480Mbit/sec )
   hasHDMI: () -> return true
@@ -125,7 +131,18 @@ class Camera
   hasPros: () -> return [
     'OUTSTANDING low light performance'
     'GREAT autofocus speed'
+
+    '42MP Full-Frame Exmor R BSI CMOS Sensor'
+    'BIONZ X Image Processor'
+    'Internal UHD 4K Video & S-Log2 Gamma'
+    '5-Axis SteadyShot INSIDE Stabilization'
+    '399 Phase-Detect AF Points & 5 fps Burst'
+    '0.5" 2.36M-Dot XGA OLED Tru-Finder EVF'
+    '3.0" 1,228.8k-Dot Tilting LCD Monitor'
+    'ISO 102,400 and Silent Shutter Mode'
+    'Durable Reduced-Vibration Shutter Design'    
   ]
   hasCons: () -> return [
     'roller effect'
+    'OVERHEATING'
   ]

@@ -13,6 +13,7 @@ class Camera
   sensor: {
     type: '#'
     size: '#'
+    crop_factor: undefined #( unit: X )
     effective_pixels: 0 #( megapixels )
     image_ratio: [ 
       '3:2'
@@ -25,6 +26,8 @@ class Camera
   codec: [
     '#'
   ]
+  dynamic_range: undefined #( unit: stops )
+  color_depth: 8 #( unit: bit, 4:2:0 )
 
   LCD: {
     type: 'TFT LCD'
@@ -59,6 +62,9 @@ class Camera
   ]
   hasDigitalZoom: () -> return undefined #( unit: X )
   hasTimelapseRecording: () -> return undefined
+  hasLog: () -> return false
+  hasExposureMeterings: () -> undefined
+  hasND: () -> return false
   
   hasTouchScreen: () -> return undefined
   hasMic: () -> return undefined
@@ -76,5 +82,16 @@ class Camera
   hasWeatherSeal: () -> return undefined
   hasSensors: () -> return undefined
 
-  hasPros: () -> return []
+  hasPros: () -> return [
+    '4K Super 35mm Sensor with Global Shutter'
+    'Records 4K (3840x2160) & HD (1920x1080)'
+    'ProRes 422 Codecs (HQ, 422, LT, & Proxy)'
+    'Compressed CinemaDNG RAW (4000x2160)'
+    '12 Stops of Dynamic Range'
+    'Canon EF Lens Mount'
+    'Built-In SSD Recorder'
+    '6G-SDI Output for Ultra HD via One Cable'
+    '5" Touchscreen LCD (800x480 Resolution)'
+    'Includes DaVinci Resolve and UltraScope'
+  ]
   hasCons: () -> return []

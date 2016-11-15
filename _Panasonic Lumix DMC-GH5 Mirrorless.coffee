@@ -1,7 +1,7 @@
 class Camera
   brand: 'Panasonic'
   name: 'Lumix DMC-GH5'
-  year:  '2016-01-01'
+  year:  '2017-01-01'
 
   size: [ 0, 0, 0 ] #( unit: mm )
   weight: 0 #( unit: g )
@@ -13,6 +13,7 @@ class Camera
   sensor: {
     type: '#'
     size: '#'
+    crop_factor: 2.0 #( unit: X )
     effective_pixels: 0 #( megapixels )
     image_ratio: [ 
       '3:2'
@@ -25,6 +26,8 @@ class Camera
   codec: [
     '#'
   ]
+  dynamic_range: undefined #( unit: stops )
+  color_depth: 10 #( unit: bit, 4:2:2 )
 
   LCD: {
     type: 'TFT LCD'
@@ -59,6 +62,9 @@ class Camera
   ]
   hasDigitalZoom: () -> return undefined #( unit: X )
   hasTimelapseRecording: () -> return undefined
+  hasLog: () -> return false
+  hasExposureMeterings: () -> undefined
+  hasND: () -> return false
   
   hasTouchScreen: () -> return undefined
   hasMic: () -> return undefined
@@ -76,5 +82,9 @@ class Camera
   hasWeatherSeal: () -> return undefined
   hasSensors: () -> return undefined
 
-  hasPros: () -> return []
+  hasPros: () -> return [
+    'DCI 4K Video Recording at up to 60 fps'
+    '4 10-bit Internal Recording'
+    '6K PHOTO & 4K PHOTO Modes'
+  ]
   hasCons: () -> return []

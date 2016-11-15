@@ -13,6 +13,7 @@ class Camera
   sensor: {
     type: '#'
     size: '#'
+    crop_factor: undefined #( unit: X )
     effective_pixels: 0 #( megapixels )
     image_ratio: [ 
       '3:2'
@@ -25,6 +26,8 @@ class Camera
   codec: [
     '#'
   ]
+  dynamic_range: undefined #( unit: stops )
+  color_depth: 8 #( unit: bit, 4:2:0 )
 
   LCD: {
     type: 'TFT LCD'
@@ -59,6 +62,9 @@ class Camera
   ]
   hasDigitalZoom: () -> return undefined #( unit: X )
   hasTimelapseRecording: () -> return undefined
+  hasLog: () -> return false
+  hasExposureMeterings: () -> undefined
+  hasND: () -> return false
   
   hasTouchScreen: () -> return undefined
   hasMic: () -> return undefined
@@ -76,5 +82,16 @@ class Camera
   hasWeatherSeal: () -> return undefined
   hasSensors: () -> return undefined
 
-  hasPros: () -> return []
+  hasPros: () -> return [
+    'Super 16mm Sized Image Sensor'
+    'Active Micro Four Thirds Lens Mount'
+    '13 Stops of Dynamic Range'
+    'Records Full HD 1920x1080 CinemaDNG RAW'
+    'Apple ProRes 422 (HQ) at 220 Mbps'
+    'Portable Design (5" Long and 12.5 oz)'
+    '3.5" LCD Display with 800x480 Resolution'
+    'Uses SDXC and SDHC Memory Cards'
+    'EN-EL20 Compatible Rechargeable Battery'
+    'HDMI, LANC, 3.5mm Audio Input and Output'
+  ]
   hasCons: () -> return []

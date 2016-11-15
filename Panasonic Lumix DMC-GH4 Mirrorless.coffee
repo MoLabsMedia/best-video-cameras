@@ -13,6 +13,7 @@ class Camera
   sensor: {
     type: 'CMOS'
     size: '3/4' #( 17.3x13mm )
+    crop_factor: 2.0 #( unit: X )
     effective_pixels: 16 #( megapixels )
     image_ratio: [ 
       '1:1'
@@ -29,6 +30,8 @@ class Camera
     'MPEG-4'
     'AVCHD'
   ]
+  dynamic_range: undefined #( unit: stops )
+  color_depth: 8 #( unit: bit, 4:2:0 )
 
   LCD: {
     type: 'OLED'
@@ -94,6 +97,14 @@ class Camera
   ]
   hasDigitalZoom: () -> return [ 2, 4 ] #( unit: X )
   hasTimelapseRecording: () -> return true
+  hasLog: () -> return 'V-Log'  #( dynamic range: 12 stops )
+  hasExposureMeterings: () -> [
+    'peaking'
+    'zebra'
+    'histogram'
+    'magnification'
+  ]
+  hasND: () -> return false
   
   hasTouchScreen: () -> return true
   hasMic: () -> return true
@@ -116,5 +127,16 @@ class Camera
     'orientation sensor'
   ]
 
-  hasPros: () -> return []
+  hasPros: () -> return [
+    '16.05MP Digital Live MOS Sensor'
+    'DCI 4K 4096x2160 at 24p'
+    'UHD 4K 3840x2160 at 30p/24p'
+    'Full HD up to 60p'
+    '3.0" 1,036k-Dot OLED Touchscreen Monitor'
+    '2,359K-Dot OLED Live View Finder'
+    'Support for 59.94p, 23.98p, 50p, & 24p'
+    '4 8-Bit or 10-Bit HDMI Output'
+    'High-Speed 49-Point Autofocus'
+    'Magnesium Alloy, Weather-Sealed Body'
+  ]
   hasCons: () -> return []

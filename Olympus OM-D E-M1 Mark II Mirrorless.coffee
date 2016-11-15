@@ -13,6 +13,7 @@ class Camera
   sensor: {
     type: 'CMOS'
     size: '3/4'
+    crop_factor: 2.0 #( unit: X )
     effective_pixels: 20 #( megapixels )
     image_ratio: [ 
       '4:3'
@@ -26,11 +27,13 @@ class Camera
     'MPEG-4'
     'H.264'
   ]
+  dynamic_range: undefined #( unit: stops )
+  color_depth: 8 #( unit: bit, 4:2:0 )
 
   LCD: {
     type: 'TFT LCD'
     size: 3 # "
-    rotate: '#'
+    rotate: '360'
   }
   viewfinder_magnification: 0.74 #( unit: x )
 
@@ -80,11 +83,14 @@ class Camera
   ]
   hasDigitalZoom: () -> return undefined #( unit: X )
   hasTimelapseRecording: () -> return true
+  hasLog: () -> return false
+  hasExposureMeterings: () -> undefined
+  hasND: () -> return false
   
   hasTouchScreen: () -> return true
   hasMic: () -> return true
   hasHeadphone: () -> return true
-  hasDualMemorySlots: () -> return undefined
+  hasDualMemorySlots: () -> return true
 
   hasUSB: () -> return 3.0 #( 5GBit/sec )
   hasHDMI: () -> return 'micro'
@@ -102,5 +108,18 @@ class Camera
     'orientation sensor'
   ]
 
-  hasPros: () -> return []
+  hasPros: () -> return [
+    'OUTSTANDING auto focus'
+    'OUTSTANDING stablizer'
+
+    '20.4MP Live MOS Sensor'
+    'TruePic VIII Dual Quad Core Processor'
+    '2.36m-Dot LCD Electronic Viewfinder'
+    '3.0" 1.04m-Dot Vari-Angle Touchscreen'
+    'DCI 4K/24p & UHD 4K/30p Video Recording'
+    '5-Axis Sensor-Shift Image Stabilization'
+    '15 fps Shooting and Expanded ISO 25600'
+    'Dual F.A.S.T. 121-Point Autofocus System'
+    'Weather-Sealed Construction'
+  ]
   hasCons: () -> return []

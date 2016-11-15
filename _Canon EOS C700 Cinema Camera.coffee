@@ -6,13 +6,17 @@ class Camera
   size: [ 0, 0, 0 ] #( unit: mm )
   weight: 0 #( unit: g )
 
-  body: '#'
-  lens: '#'
+  body: 'Camcorder'
+  lens: [
+    'EF'
+    'PL'
+  ]
 
   processor: '#'
   sensor: {
-    type: '#'
-    size: '#'
+    type: 'CMOS'
+    size: 'super 35 mm'
+    crop_factor: undefined #( unit: X )
     effective_pixels: 0 #( megapixels )
     image_ratio: [ 
       '3:2'
@@ -25,6 +29,8 @@ class Camera
   codec: [
     '#'
   ]
+  dynamic_range: 15 #( unit: stops )
+  color_depth: 12 #( unit: bit, 4:4:4, Apple ProRes )
 
   LCD: {
     type: 'TFT LCD'
@@ -39,7 +45,7 @@ class Camera
 
   battery_life: 0 #( unit: CIPA )
   
-  hasRAW: () -> return undefined
+  hasRAW: () -> return true
   hasResolutions: ( image_ratio, type ) -> undefined
   hasFrameRate: ( res ) ->
     switch res
@@ -59,6 +65,13 @@ class Camera
   ]
   hasDigitalZoom: () -> return undefined #( unit: X )
   hasTimelapseRecording: () -> return undefined
+  hasLog: () -> return [
+  hasExposureMeterings: () -> undefined
+    # 'log'
+    # 'log-2'
+    # 'log-3'
+  ]
+  hasND: () -> return 5 #( unit: stops )
   
   hasTouchScreen: () -> return undefined
   hasMic: () -> return undefined
@@ -76,5 +89,18 @@ class Camera
   hasWeatherSeal: () -> return undefined
   hasSensors: () -> return undefined
 
-  hasPros: () -> return []
+  hasPros: () -> return [
+    'shoots up to 4.5K'
+
+    'Super 35mm CMOS Sensor'
+    'EF Cinema Lock Type Mount'
+    'Up to 15 Stops of Dynamic Range'
+    'Dual Pixel CMOS AF'
+    '4K up to 60 fps, 2K/HD up to 240 fps'
+    'Proxy Recording to SD Cards'
+    'Selectable Gamma and Log Curves'
+    'XF-AVC and ProRes Recording to CFast 2.0'
+    'Intuitive User Interface'
+    'Raw Recording Option'
+  ]
   hasCons: () -> return []

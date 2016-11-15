@@ -7,12 +7,13 @@ class Camera
   weight: 453 #( unit: g )
 
   body: 'Rangefinder-style mirrorless'
-  lens: 'E'
+  lens: 'Sony E'
 
   processor: 'Bionz X'
   sensor: {
     type: 'CMOS'
     size: 'APS-C' #( 23.5x15.6mm )
+    crop_factor: undefined #( unit: X )
     crop_factor: 1.5 #( unit: X )
     effective_pixels: 24 #( megapixels )
     image_ratio: [ 
@@ -29,6 +30,8 @@ class Camera
     'AVCHD'
     'XAVC S'
   ]
+  dynamic_range: undefined #( unit: stops )
+  color_depth: 8 #( unit: bit, 4:2:0 )
 
   LCD: {
     type: 'TFT LCD'
@@ -48,7 +51,7 @@ class Camera
   hasResolutions: ( image_ratio, type ) -> return undefined
   hasFrameRate: ( res ) ->
     switch res
-      when '3840x2160'
+      when '3840x2160' # UHD
         return [
           '30p' # 100Mbps/60Mbps, XAVC S, MP4, H.264, Linear PCM
           '25p' # 100Mbps/60Mbps, XAVC S, MP4, H.264, Linear PCM
@@ -88,10 +91,13 @@ class Camera
   ]
   hasDigitalZoom: () -> return undefined #( unit: X )
   hasTimelapseRecording: () -> return undefined
+  hasLog: () -> return false
+  hasExposureMeterings: () -> undefined
+  hasND: () -> return false
   
   hasTouchScreen: () -> return true
-  hasMic: () -> return 'stereo'
-  hasHeadphone: () -> return 'mono'
+  hasMic: () -> return true
+  hasHeadphone: () -> return true
   hasDualMemorySlots: () -> return false
 
   hasUSB: () -> return 2.0
@@ -112,5 +118,15 @@ class Camera
   hasPros: () -> return [
     'GREAT low light performance'
     'GREAT autofocus speed'
+
+    '24.2MP APS-C Exmor CMOS Sensor'
+    'BIONZ X Image Processor'
+    'XGA Tru-Finder 2.36m-Dot OLED EVF'
+    '3.0" 921.6k-Dot Tilting Touchscreen LCD'
+    'Internal UHD 4K Video & S-Log3 Gamma'
+    'S&Q Motion in Full HD from 1-120 fps'
+    '5-Axis SteadyShot INSIDE Stabilization'
+    '4D FOCUS with 425 Phase-Detect Points'
+    'Up to 11 fps Shooting and ISO 51200'
   ]
   hasCons: () -> return []
