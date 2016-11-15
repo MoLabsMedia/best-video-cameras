@@ -128,7 +128,7 @@ class Camera
   ]
 
   hasPros: () -> return [
-    '16.05MP Digital Live MOS Sensor'
+    '16.05MP Digital Live CMOS Sensor'
     'DCI 4K 4096x2160 at 24p'
     'UHD 4K 3840x2160 at 30p/24p'
     'Full HD up to 60p'
