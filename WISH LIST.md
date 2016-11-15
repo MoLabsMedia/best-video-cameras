@@ -22,3 +22,4 @@
 20. long battery life
 21. weather sealed
 22. full-frame
+ 
