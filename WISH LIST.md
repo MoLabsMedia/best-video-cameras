@@ -1,4 +1,5 @@
 ## CAPABILITIES WISH LIST
+
 1. 4K
 2. 60p+ ( 4K ), 120p+ ( Full HD )
 3. RAW
